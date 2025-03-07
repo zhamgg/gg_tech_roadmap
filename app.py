@@ -18,13 +18,13 @@ st.markdown("""
     .main-header {
         font-size: 2.5rem;
         font-weight: 700;
-        color: #1E3A8A;
+        color: #E45F9D;
         margin-bottom: 1rem;
     }
     .sub-header {
         font-size: 1.8rem;
         font-weight: 600;
-        color: #2563EB;
+        color: #8DD3C7;
         margin-top: 1rem;
         margin-bottom: 0.5rem;
     }
@@ -32,14 +32,16 @@ st.markdown("""
         border-radius: 5px;
         padding: 1.5rem;
         margin-bottom: 1rem;
-        background-color: white;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        background-color: #1E1E1E;
+        color: #FFFFFF;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     }
     .metric-card {
         text-align: center;
         padding: 1rem;
         border-radius: 5px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        color: white;
     }
     .metric-value {
         font-size: 2.2rem;
@@ -48,27 +50,80 @@ st.markdown("""
     }
     .metric-label {
         font-size: 1rem;
-        color: #6B7280;
+        color: rgba(255, 255, 255, 0.8);
     }
     .status-on-track {
-        color: #10B981;
+        color: #8DD3C7;
         font-weight: 600;
     }
     .status-at-risk {
-        color: #F59E0B;
+        color: #FFBB78;
         font-weight: 600;
     }
     .status-escalation {
-        color: #EF4444;
+        color: #E45F9D;
         font-weight: 600;
     }
     .highlight {
-        background-color: #DBEAFE;
+        background-color: rgba(141, 211, 199, 0.2);
         padding: 0.5rem;
         border-radius: 3px;
         font-weight: 500;
     }
+    /* Custom Great Gray branding */
+    h1, h2, h3 {
+        color: #E45F9D !important;
+    }
+    h4, h5, h6 {
+        color: #8DD3C7 !important;
+    }
+    .stRadio > div {
+        background-color: #1E1E1E;
+        border-radius: 5px;
+        padding: 10px;
+    }
+    /* Custom styling for tabs */
+    .stTabs [data-baseweb="tab-list"] {
+        gap: 8px;
+    }
+    .stTabs [data-baseweb="tab"] {
+        height: 50px;
+        white-space: pre-wrap;
+        background-color: #1E1E1E;
+        border-radius: 4px 4px 0 0;
+        color: white;
+        padding: 10px 16px;
+    }
+    .stTabs [aria-selected="true"] {
+        background-color: #8DD3C7;
+        color: #1E1E1E;
+    }
+    /* Override Streamlit's default background */
+    .stApp {
+        background-color: #121212;
+    }
+    /* Make text white by default for better contrast on dark background */
+    .stMarkdown, p, li {
+        color: white;
+    }
+    /* Customize sidebar */
+    [data-testid="stSidebar"] {
+        background-color: #1E1E1E;
+    }
+    /* Add Great Gray logo at the top of sidebar */
+    .sidebar-logo {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    .sidebar-logo img {
+        max-width: 80%;
+    }
 </style>
+
+<div class="sidebar-logo">
+    <img src="https://raw.githubusercontent.com/yourusername/gg_tech_roadmap/main/assets/gg_logo.png" alt="Great Gray Trust Company Logo">
+</div>
 """, unsafe_allow_html=True)
 
 # Sidebar navigation
