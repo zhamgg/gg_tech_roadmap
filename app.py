@@ -127,6 +127,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
+
 # Sidebar navigation
 st.sidebar.markdown("# Navigation")
 page = st.sidebar.radio(
