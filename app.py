@@ -206,17 +206,9 @@ def executive_dashboard():
     st.markdown("Last updated: March 7, 2025")
     
     # Key metrics at the top
-    col1, col2, col3, col4 = st.columns(4)
+    empty_left, col1, col2, col3, empty_right = st.columns([1, 2, 2, 2, 1)
     
     with col1:
-        st.markdown("""
-        <div class='metric-card' style='background-color: #EFF6FF;'>
-            <div class='metric-value'>$500K</div>
-            <div class='metric-label'>Phase 1 Investment</div>
-        </div>
-        """, unsafe_allow_html=True)
-    
-    with col2:
         st.markdown("""
         <div class='metric-card' style='background-color: #F0FDF4;'>
             <div class='metric-value'>33</div>
@@ -224,7 +216,7 @@ def executive_dashboard():
         </div>
         """, unsafe_allow_html=True)
     
-    with col3:
+    with col2:
         st.markdown("""
         <div class='metric-card' style='background-color: #FEF3C7;'>
             <div class='metric-value'>75%</div>
@@ -232,15 +224,13 @@ def executive_dashboard():
         </div>
         """, unsafe_allow_html=True)
     
-    with col4:
+    with col3:
         st.markdown("""
         <div class='metric-card' style='background-color: #DBEAFE;'>
             <div class='metric-value'>2025 Q3</div>
             <div class='metric-label'>AI/ML Launch Target</div>
         </div>
         """, unsafe_allow_html=True)
-    
-    st.markdown("<br>", unsafe_allow_html=True)
     
     # Project status and phase completion
     col1, col2 = st.columns([1, 1])
