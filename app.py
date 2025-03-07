@@ -932,6 +932,165 @@ def ai_ml_roadmap():
     
     st.markdown("</div>", unsafe_allow_html=True)
 
+def strategic_recommendations():
+    st.markdown("<div class='main-header'>Strategic Recommendations</div>", unsafe_allow_html=True)
+    st.markdown("As of March 7, 2025")
+    
+    # Summary of assessment
+    st.markdown("<div class='card'>", unsafe_allow_html=True)
+    st.markdown("### Executive Summary")
+    st.markdown("""
+    After a thorough assessment of the Analytics Hub initiative with Inspire11, significant progress has been made through Phase 1 (AUA Reporting) and Phase 2 (Ownership/Omnibus & Invoice Reporting), but substantial challenges remain with data quality, business adoption, and lack of formalized data governance that are impeding the ability to scale.
+    
+    The Analytics Hub has delivered automation of key reports and established a foundation for data centralization, but the path forward requires:
+    1. Technical Improvements: Implementing more sophisticated tools to address persistent data quality issues
+    2. Organizational Changes: Establishing formal data governance and increasing business adoption
+    3. Strategic Roadmap: Refining the approach to Phase 3 initiatives to deliver higher business value
+    """)
+    st.markdown("</div>", unsafe_allow_html=True)
+    
+    # Recommendations by timeframe
+    rec_tabs = st.tabs(["Immediate Actions (30 Days)", "Medium-Term (60-90 Days)", "Strategic Roadmap (6-12 Months)"])
+    
+    with rec_tabs[0]:
+        st.markdown("<div class='card'>", unsafe_allow_html=True)
+        st.markdown("### Immediate Actions (Next 30 Days)")
+        
+        col1, col2 = st.columns(2)
+        
+        with col1:
+            st.markdown("#### 1. Establish Data Governance Framework")
+            st.markdown("- Define data ownership, quality standards, and stewardship roles")
+            st.markdown("- Create data quality SLAs for internal and external data sources")
+            st.markdown("- Implement data quality monitoring dashboards")
+            
+            st.markdown("#### 2. Address Technical Priorities")
+            st.markdown("- Complete State Street SFTP cutover (pending 1 bug, should be completed EOW)")
+            st.markdown("- Implement enhanced data quality checks")
+            st.markdown("- Develop automated data quality monitoring and alerting")
+        
+        with col2:
+            st.markdown("#### 3. Enhance Business Adoption")
+            st.markdown("- Conduct targeted training sessions for business users")
+            st.markdown("- Create user-friendly documentation and guides")
+            st.markdown("- Establish regular touch points to gather feedback")
+            
+            st.markdown("#### Expected Outcomes")
+            st.markdown("- Improved data quality and reduced manual intervention")
+            st.markdown("- Greater business engagement with Analytics Hub")
+            st.markdown("- Clear ownership and accountability for data assets")
+        
+        st.markdown("</div>", unsafe_allow_html=True)
+    
+    with rec_tabs[1]:
+        st.markdown("<div class='card'>", unsafe_allow_html=True)
+        st.markdown("### Medium-Term Initiatives (60-90 Days)")
+        
+        col1, col2 = st.columns(2)
+        
+        with col1:
+            st.markdown("#### 1. AI/ML-Powered Data Quality")
+            st.markdown("- Implement AI solution to automatically detect and remediate data quality issues from custodians")
+            st.markdown("- Deploy ML models for data validation, anomaly detection, and auto-correction")
+            st.markdown("- Create intelligent data quality monitoring dashboard with predictive capabilities")
+            
+            st.markdown("#### 2. RPAG Data Integration Acceleration")
+            st.markdown("- Develop ML-powered solution to manage the 400+ files with different formats from RPAG")
+            st.markdown("- Implement intelligent schema detection and mapping for variable data formats")
+            st.markdown("- Automate reconciliation and validation processes")
+        
+        with col2:
+            st.markdown("#### 3. Team Structure & Capabilities")
+            st.markdown("- Strategically onboard new headcount:")
+            st.markdown("  - 2 Data Engineers focused on pipeline optimization and automation")
+            st.markdown("  - 2 Data Scientists dedicated to ML/AI solutions")
+            st.markdown("  - 1 Project Manager to drive adoption and governance")
+            
+            st.markdown("#### Expected Outcomes")
+            st.markdown("- 70% reduction in manual processing for data quality issues")
+            st.markdown("- Streamlined RPAG data integration")
+            st.markdown("- Dedicated team with clear responsibilities")
+        
+        st.markdown("</div>", unsafe_allow_html=True)
+    
+    with rec_tabs[2]:
+        st.markdown("<div class='card'>", unsafe_allow_html=True)
+        st.markdown("### Strategic Roadmap (6-12 Months)")
+        
+        st.markdown("A strategic pivot toward AI/ML-powered solutions is recommended to address the most critical challenges:")
+        
+        col1, col2 = st.columns(2)
+        
+        with col1:
+            st.markdown("#### 1. Recordkeeper Initiative & Data as a Service")
+            st.markdown("- Implement AI-powered data integration platform")
+            st.markdown("- Develop intelligent APIs for data as a service capabilities")
+            st.markdown("- Create ML models to standardize data across platforms")
+            
+            st.markdown("#### 2. Alteryx Migration & Process Transformation")
+            st.markdown("- Leverage AI to accelerate migration of reports")
+            st.markdown("- Implement intelligent workflow automation")
+            st.markdown("- Create self-service analytics with AI assistants")
+        
+        with col2:
+            st.markdown("#### 3. Master Data Management & Intelligence")
+            st.markdown("- Build AI-powered MDM solution for funds and plans")
+            st.markdown("- Replace FactSet with in-house solution (potential $250k/year savings)")
+            st.markdown("- Implement automated data lineage and impact analysis")
+            
+            st.markdown("#### 4. Advanced Analytics Platform")
+            st.markdown("- Develop AI models for profitability and performance prediction")
+            st.markdown("- Implement intelligent anomaly detection")
+            st.markdown("- Create predictive analytics for business growth")
+        
+        st.markdown("</div>", unsafe_allow_html=True)
+    
+    # Resource allocation
+    st.markdown("<div class='card'>", unsafe_allow_html=True)
+    st.markdown("### Resource Allocation")
+    
+    col1, col2, col3 = st.columns(3)
+    
+    with col1:
+        st.markdown("#### Data Engineers (2)")
+        st.markdown("- **Engineer 1**: AI/ML-powered data quality automation and RPAG integration")
+        st.markdown("- **Engineer 2**: Recordkeeper Initiative architecture and Data as a Service implementation")
+    
+    with col2:
+        st.markdown("#### Data Scientists (2)")
+        st.markdown("- **Scientist 1**: ML models for data ingestion, classification, and anomaly detection")
+        st.markdown("- **Scientist 2**: AI for predictive analytics and intelligent data processing applications")
+    
+    with col3:
+        st.markdown("#### Project Manager")
+        st.markdown("- Coordinate Enterprise Data Governance implementation")
+        st.markdown("- Drive user adoption through targeted enablement programs")
+        st.markdown("- Manage Alteryx migration and process transformation initiatives")
+    
+    st.markdown("</div>", unsafe_allow_html=True)
+    
+    # Key benefits
+    st.markdown("<div class='card'>", unsafe_allow_html=True)
+    st.markdown("### Expected Benefits")
+    
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        st.markdown("#### Operational Benefits")
+        st.markdown("- 70% reduction in manual data processing")
+        st.markdown("- 90% automation of data quality validation")
+        st.markdown("- 60% faster time to insight for business users")
+        st.markdown("- $250k potential annual savings from FactSet replacement")
+    
+    with col2:
+        st.markdown("#### Strategic Benefits")
+        st.markdown("- Data-driven decision making across the organization")
+        st.markdown("- Scalable platform for future acquisitions and growth")
+        st.markdown("- Improved data quality and confidence in reporting")
+        st.markdown("- Enhanced ability to identify business opportunities")
+    
+    st.markdown("</div>", unsafe_allow_html=True)
+
 
 # Run the selected page
 st.write(f"Current page selected: {page}")  # Debug line
