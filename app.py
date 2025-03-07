@@ -267,27 +267,28 @@ def executive_dashboard():
     
     with col1:
         st.markdown("""
-        <div class='metric-card' style='background-color: #F0FDF4;'>
-            <div class='metric-value'>33</div>
-            <div class='metric-label'>Automated Reports</div>
+        <div class='metric-card' style='background-color: #E6F7EF; border: 1px solid #8DD3C7;'>
+            <div class='metric-value' style='color: #333333;'>33</div>
+            <div class='metric-label' style='color: #555555;'>Automated Reports</div>
         </div>
         """, unsafe_allow_html=True)
     
     with col2:
         st.markdown("""
-        <div class='metric-card' style='background-color: #FEF3C7;'>
-            <div class='metric-value'>75%</div>
-            <div class='metric-label'>Phase 2 Completion</div>
+        <div class='metric-card' style='background-color: #FFF3D9; border: 1px solid #E45F9D;'>
+            <div class='metric-value' style='color: #333333;'>75%</div>
+            <div class='metric-label' style='color: #555555;'>Phase 2 Completion</div>
         </div>
         """, unsafe_allow_html=True)
     
     with col3:
         st.markdown("""
-        <div class='metric-card' style='background-color: #DBEAFE;'>
-            <div class='metric-value'>2025 Q3</div>
-            <div class='metric-label'>AI/ML Launch Target</div>
+        <div class='metric-card' style='background-color: #E6F0FF; border: 1px solid #8DD3C7;'>
+            <div class='metric-value' style='color: #333333;'>2025 Q3</div>
+            <div class='metric-label' style='color: #555555;'>AI/ML Launch Target</div>
         </div>
         """, unsafe_allow_html=True)
+
     
     st.markdown("<br>", unsafe_allow_html=True)
     
