@@ -462,12 +462,6 @@ def analytics_hub():
         - **Foundation for Future Growth**: Highly-scalable and flexible modern data platform
         """)
     
-    with col2:
-        st.markdown("#### Investment")
-        st.markdown("**Phase 1**: $500,000")
-        st.markdown("**Phase 2 (Est.)**: $600,000")
-        st.markdown("**Phase 3 (Proj.)**: $750,000")
-    
     st.markdown("</div>", unsafe_allow_html=True)
     
     # Capabilities and reports
