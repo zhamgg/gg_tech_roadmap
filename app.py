@@ -526,7 +526,7 @@ def analytics_hub():
     report_tabs = st.tabs(["Daily AUA Reports", "Monthly MOR Reports", "Quarterly QOR Reports"])
     
     with report_tabs[0]:
-        st.image("https://via.placeholder.com/800x400?text=Daily+AUA+Reports+Visualization", use_column_width=True)
+        st.image("https://via.placeholder.com/800x400?text=Daily+AUA+Reports+Visualization", use_container_width=True)
         st.markdown("""
         These key operational reports are automatically sent out daily to users from Power BI. Benefits compared to existing reports:
         - Interactive, allowing users to select any day to see history
@@ -535,7 +535,7 @@ def analytics_hub():
         """)
     
     with report_tabs[1]:
-        st.image("https://via.placeholder.com/800x400?text=Monthly+MOR+Reports+Visualization", use_column_width=True)
+        st.image("https://via.placeholder.com/800x400?text=Monthly+MOR+Reports+Visualization", use_container_width=True)
         st.markdown("""
         Monthly Operating Review ("MOR") reports show trends and further analysis at a higher level. Improvements:
         - Interactive and available on demand in Power BI
@@ -544,7 +544,7 @@ def analytics_hub():
         """)
     
     with report_tabs[2]:
-        st.image("https://via.placeholder.com/800x400?text=Quarterly+QOR+Reports+Visualization", use_column_width=True)
+        st.image("https://via.placeholder.com/800x400?text=Quarterly+QOR+Reports+Visualization", use_container_width=True)
         st.markdown("""
         Quarterly Operating Review ("QOR") reports show trends and further analysis at a higher level. Improvements:
         - Interactive and available on demand in Power BI
@@ -562,6 +562,7 @@ def analytics_hub():
         st.markdown(f"- {challenge}")
     
     st.markdown("</div>", unsafe_allow_html=True)
+
 
 def ai_ml_roadmap():
     st.markdown("<div class='main-header'>AI/ML Technical Roadmap</div>", unsafe_allow_html=True)
