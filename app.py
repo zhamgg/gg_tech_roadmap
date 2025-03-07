@@ -298,50 +298,7 @@ def project_status_page():
     st.markdown("<div class='card'>", unsafe_allow_html=True)
     st.markdown("<div class='sub-header'>Status Overview</div>", unsafe_allow_html=True)
     
-    col1, col2, col3, col4 = st.columns(4)
-    
-    with col1:
-        status_value = project_status_data["Overall Project"]
-        status_class = "status-on-track" if status_value == "ON TRACK" else "status-at-risk" if status_value == "AT RISK" else "status-escalation"
-        st.markdown(f"""
-        <div class='metric-card'>
-            <div class='metric-label'>Overall Project</div>
-            <div class='metric-value {status_class}'>{status_value}</div>
-        </div>
-        """, unsafe_allow_html=True)
-    
-    with col2:
-        status_value = project_status_data["Timeline"]
-        status_class = "status-on-track" if status_value == "ON TRACK" else "status-at-risk" if status_value == "AT RISK" else "status-escalation"
-        st.markdown(f"""
-        <div class='metric-card'>
-            <div class='metric-label'>Timeline</div>
-            <div class='metric-value {status_class}'>{status_value}</div>
-        </div>
-        """, unsafe_allow_html=True)
-    
-    with col3:
-        status_value = project_status_data["Budget"]
-        status_class = "status-on-track" if status_value == "ON TRACK" else "status-at-risk" if status_value == "AT RISK" else "status-escalation"
-        st.markdown(f"""
-        <div class='metric-card'>
-            <div class='metric-label'>Budget</div>
-            <div class='metric-value {status_class}'>{status_value}</div>
-        </div>
-        """, unsafe_allow_html=True)
-    
-    with col4:
-        status_value = project_status_data["Deliverables and Scope"]
-        status_class = "status-on-track" if status_value == "ON TRACK" else "status-at-risk" if status_value == "AT RISK" else "status-escalation"
-        st.markdown(f"""
-        <div class='metric-card'>
-            <div class='metric-label'>Deliverables & Scope</div>
-            <div class='metric-value {status_class}'>{status_value}</div>
-        </div>
-        """, unsafe_allow_html=True)
-    
-    st.markdown("</div>", unsafe_allow_html=True)
-    
+  
     # Recent activities
     st.markdown("<div class='card'>", unsafe_allow_html=True)
     st.markdown("<div class='sub-header'>Recent Activities</div>", unsafe_allow_html=True)
@@ -349,7 +306,7 @@ def project_status_page():
     activities = [
         {
             "date": "February 27, 2025",
-            "activity": "State Street SFTP cutover scheduled for Monday, March 3."
+            "activity": "State Street SFTP cutover completed Tuesdayday, March 4."
         },
         {
             "date": "February 27, 2025",
