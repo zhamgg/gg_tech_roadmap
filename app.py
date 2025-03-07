@@ -289,34 +289,7 @@ def executive_dashboard():
     
     st.markdown("</div>", unsafe_allow_html=True)
     
-    # Investment data
-    st.markdown("<div class='card'>", unsafe_allow_html=True)
-    st.markdown("<div class='sub-header'>Investment Overview</div>", unsafe_allow_html=True)
-    
-    fig = go.Figure()
-    
-    fig.add_trace(go.Bar(
-        x=list(investment_data.keys()),
-        y=list(investment_data.values()),
-        marker_color=px.colors.sequential.Blugrn,
-        text=[f"${value/1000:.0f}K" for value in investment_data.values()],
-        textposition='auto'
-    ))
-    
-    fig.update_layout(
-        height=300,
-        margin=dict(l=0, r=0, t=10, b=0),
-        yaxis=dict(
-            title='Investment Amount ($)'
-        ),
-        xaxis=dict(
-            title='Project Phase'
-        )
-    )
-    
-    st.plotly_chart(fig, use_container_width=True)
-    st.markdown("</div>", unsafe_allow_html=True)
-
+   
 def project_status_page():
     st.markdown("<div class='main-header'>Project Status</div>", unsafe_allow_html=True)
     st.markdown("Last updated: March 7, 2025")
