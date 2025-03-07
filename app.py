@@ -97,7 +97,7 @@ phase_completion = {
     "Phase 1 - AUA Reporting": 100,
     "Phase 2 - Ownership/Omnibus & Invoice Reporting": 75,
     "Enhanced Data Quality Checks": 40,
-    "State Street SFTP Cutover": 80,
+    "State Street SFTP Cutover": 100,
     "Phase 3 Planning": 20
 }
 
@@ -1021,17 +1021,17 @@ def strategic_recommendations():
 st.write(f"Current page selected: {page}")  # Debug line
 
 if page == "Executive Dashboard":
-    st.write("Loading Executive Dashboard...")  # Debug line
+    #st.write("Loading Executive Dashboard...")  # Debug line
     executive_dashboard()
 elif page == "Project Status":
-    st.write("Loading Project Status...")  # Debug line
+    #st.write("Loading Project Status...")  # Debug line
     project_status_page()
 elif page == "Analytics Hub":
-    st.write("Loading Analytics Hub...")  # Debug line
+    #st.write("Loading Analytics Hub...")  # Debug line
     analytics_hub()
 elif page == "AI/ML Roadmap":
-    st.write("Loading AI/ML Roadmap...")  # Debug line
+    #st.write("Loading AI/ML Roadmap...")  # Debug line
     ai_ml_roadmap()
 elif page == "Strategic Recommendations":
-    st.write("Loading Strategic Recommendations...")  # Debug line
+    #st.write("Loading Strategic Recommendations...")  # Debug line
     strategic_recommendations()
