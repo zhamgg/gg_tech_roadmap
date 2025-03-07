@@ -206,7 +206,7 @@ def executive_dashboard():
     st.markdown("Last updated: March 7, 2025")
     
     # Key metrics at the top
-    empty_left, col1, col2, col3, empty_right = st.columns([1, 2, 2, 2, 1)
+    empty_left, col1, col2, col3, empty_right = st.columns([1, 2, 2, 2, 1])
     
     with col1:
         st.markdown("""
