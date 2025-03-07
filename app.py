@@ -6,7 +6,7 @@ from datetime import datetime
 
 # Set page configuration
 st.set_page_config(
-    page_title="Great Gray Analytics Hub Dashboard",
+    page_title="Status Assessment Dashboard",
     page_icon="📊",
     layout="wide",
     initial_sidebar_state="expanded",
