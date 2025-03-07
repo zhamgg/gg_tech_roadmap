@@ -86,7 +86,7 @@ Data as of March 7, 2025.
 """)
 
 # Dummy data for the dashboard
-project_status = {
+project_status_data = {
     "Overall Project": "ON TRACK",
     "Timeline": "ON TRACK",
     "Budget": "ON TRACK",
@@ -205,7 +205,7 @@ def executive_dashboard():
     st.markdown("<div class='sub-header'>Executive Dashboard</div>", unsafe_allow_html=True)
     st.markdown("Last updated: March 7, 2025")
     
-    # Key metrics at the top
+    # Key metrics at the top - with 3 centered tiles
     empty_left, col1, col2, col3, empty_right = st.columns([1, 2, 2, 2, 1])
     
     with col1:
@@ -232,92 +232,53 @@ def executive_dashboard():
         </div>
         """, unsafe_allow_html=True)
     
-    # Project status and phase completion
-    col1, col2 = st.columns([1, 1])
+    st.markdown("<br>", unsafe_allow_html=True)
     
-    with col1:
-        st.markdown("<div class='card'>", unsafe_allow_html=True)
-        st.markdown("<div class='sub-header'>Project Status</div>", unsafe_allow_html=True)
-        
-        for key, value in project_status.items():
-            if value == "ON TRACK":
-                status_class = "status-on-track"
-            elif value == "AT RISK":
-                status_class = "status-at-risk"
-            else:
-                status_class = "status-escalation"
-            
-            st.markdown(f"""
-            <div style='display: flex; justify-content: space-between; margin-bottom: 10px;'>
-                <div>{key}</div>
-                <div class='{status_class}'>{value}</div>
-            </div>
-            """, unsafe_allow_html=True)
-        st.markdown("</div>", unsafe_allow_html=True)
-        
-        st.markdown("<div class='card'>", unsafe_allow_html=True)
-        st.markdown("<div class='sub-header'>Key Achievements</div>", unsafe_allow_html=True)
-        
-        for achievement in achievements:
-            st.markdown(f"- {achievement}")
-        
-        st.markdown("</div>", unsafe_allow_html=True)
+    # Phase Completion section
+    st.markdown("<div class='card'>", unsafe_allow_html=True)
+    st.markdown("<div class='sub-header'>Phase Completion</div>", unsafe_allow_html=True)
     
-    with col2:
-        st.markdown("<div class='card'>", unsafe_allow_html=True)
-        st.markdown("<div class='sub-header'>Phase Completion</div>", unsafe_allow_html=True)
-        
-        # Create a horizontal bar chart
-        fig = go.Figure()
-        
-        for phase, completion in phase_completion.items():
-            fig.add_trace(go.Bar(
-                y=[phase],
-                x=[completion],
-                orientation='h',
-                marker=dict(
-                    color=px.colors.sequential.Blues[int(completion/20)],
-                    line=dict(color='rgb(8,48,107)', width=1)
-                ),
-                text=[f"{completion}%"],
-                textposition='auto',
-                name=phase
-            ))
-        
-        fig.update_layout(
-            height=300,
-            margin=dict(l=0, r=0, t=10, b=0),
-            xaxis=dict(
-                title='Completion Percentage',
-                range=[0, 100]
+    # Create a horizontal bar chart
+    fig = go.Figure()
+    
+    for phase, completion in phase_completion.items():
+        fig.add_trace(go.Bar(
+            y=[phase],
+            x=[completion],
+            orientation='h',
+            marker=dict(
+                color=px.colors.sequential.Blues[int(completion/20)],
+                line=dict(color='rgb(8,48,107)', width=1)
             ),
-            yaxis=dict(
-                title=None,
-                autorange="reversed"
-            )
+            text=[f"{completion}%"],
+            textposition='auto',
+            name=phase
+        ))
+    
+    fig.update_layout(
+        height=300,
+        margin=dict(l=0, r=0, t=10, b=0),
+        xaxis=dict(
+            title='Completion Percentage',
+            range=[0, 100]
+        ),
+        yaxis=dict(
+            title=None,
+            autorange="reversed"
         )
-        
-        st.plotly_chart(fig, use_container_width=True)
-        st.markdown("</div>", unsafe_allow_html=True)
-        
-        st.markdown("<div class='card'>", unsafe_allow_html=True)
-        st.markdown("<div class='sub-header'>Team Allocation</div>", unsafe_allow_html=True)
-        
-        # Create a pie chart for team allocation
-        fig = go.Figure(data=[go.Pie(
-            labels=list(team_allocation.keys()),
-            values=list(team_allocation.values()),
-            hole=.4,
-            marker_colors=px.colors.qualitative.Pastel
-        )])
-        
-        fig.update_layout(
-            height=250,
-            margin=dict(l=0, r=0, t=0, b=0)
-        )
-        
-        st.plotly_chart(fig, use_container_width=True)
-        st.markdown("</div>", unsafe_allow_html=True)
+    )
+    
+    st.plotly_chart(fig, use_container_width=True)
+    st.markdown("</div>", unsafe_allow_html=True)
+    
+    # Key Achievements section
+    st.markdown("<div class='card'>", unsafe_allow_html=True)
+    st.markdown("<div class='sub-header'>Key Achievements</div>", unsafe_allow_html=True)
+    
+    for achievement in achievements:
+        st.markdown(f"- {achievement}")
+    
+    st.markdown("</div>", unsafe_allow_html=True)
     
     # Critical challenges
     st.markdown("<div class='card'>", unsafe_allow_html=True)
@@ -367,7 +328,7 @@ def project_status_page():
     col1, col2, col3, col4 = st.columns(4)
     
     with col1:
-        status_value = project_status["Overall Project"]
+        status_value = project_status_data["Overall Project"]
         status_class = "status-on-track" if status_value == "ON TRACK" else "status-at-risk" if status_value == "AT RISK" else "status-escalation"
         st.markdown(f"""
         <div class='metric-card'>
@@ -377,7 +338,7 @@ def project_status_page():
         """, unsafe_allow_html=True)
     
     with col2:
-        status_value = project_status["Timeline"]
+        status_value = project_status_data["Timeline"]
         status_class = "status-on-track" if status_value == "ON TRACK" else "status-at-risk" if status_value == "AT RISK" else "status-escalation"
         st.markdown(f"""
         <div class='metric-card'>
@@ -387,7 +348,7 @@ def project_status_page():
         """, unsafe_allow_html=True)
     
     with col3:
-        status_value = project_status["Budget"]
+        status_value = project_status_data["Budget"]
         status_class = "status-on-track" if status_value == "ON TRACK" else "status-at-risk" if status_value == "AT RISK" else "status-escalation"
         st.markdown(f"""
         <div class='metric-card'>
@@ -397,7 +358,7 @@ def project_status_page():
         """, unsafe_allow_html=True)
     
     with col4:
-        status_value = project_status["Deliverables and Scope"]
+        status_value = project_status_data["Deliverables and Scope"]
         status_class = "status-on-track" if status_value == "ON TRACK" else "status-at-risk" if status_value == "AT RISK" else "status-escalation"
         st.markdown(f"""
         <div class='metric-card'>
@@ -970,174 +931,3 @@ def ai_ml_roadmap():
             st.markdown(f"- {metric}")
     
     st.markdown("</div>", unsafe_allow_html=True)
-
-def strategic_recommendations():
-    st.markdown("<div class='main-header'>Strategic Recommendations</div>", unsafe_allow_html=True)
-    st.markdown("As of March 7, 2025")
-    
-    # Summary of assessment
-    st.markdown("<div class='card'>", unsafe_allow_html=True)
-    st.markdown("### Executive Summary")
-    st.markdown("""
-    After a thorough assessment of the Analytics Hub initiative with Inspire11, significant progress has been made through Phase 1 (AUA Reporting) and Phase 2 (Ownership/Omnibus & Invoice Reporting), but substantial challenges remain with data quality, business adoption, and lack of formalized data governance that are impeding the ability to scale.
-    
-    The Analytics Hub has delivered automation of key reports and established a foundation for data centralization, but the path forward requires:
-    1. Technical Improvements: Implementing more sophisticated tools to address persistent data quality issues
-    2. Organizational Changes: Establishing formal data governance and increasing business adoption
-    3. Strategic Roadmap: Refining the approach to Phase 3 initiatives to deliver higher business value
-    """)
-    st.markdown("</div>", unsafe_allow_html=True)
-    
-    # Recommendations by timeframe
-    rec_tabs = st.tabs(["Immediate Actions (30 Days)", "Medium-Term (60-90 Days)", "Strategic Roadmap (6-12 Months)"])
-    
-    with rec_tabs[0]:
-        st.markdown("<div class='card'>", unsafe_allow_html=True)
-        st.markdown("### Immediate Actions (Next 30 Days)")
-        
-        col1, col2 = st.columns(2)
-        
-        with col1:
-            st.markdown("#### 1. Establish Data Governance Framework")
-            st.markdown("- Define data ownership, quality standards, and stewardship roles")
-            st.markdown("- Create data quality SLAs for internal and external data sources")
-            st.markdown("- Implement data quality monitoring dashboards")
-            
-            st.markdown("#### 2. Address Technical Priorities")
-            st.markdown("- Complete State Street SFTP cutover (pending 1 bug, should be completed EOW)")
-            st.markdown("- Implement enhanced data quality checks")
-            st.markdown("- Develop automated data quality monitoring and alerting")
-        
-        with col2:
-            st.markdown("#### 3. Enhance Business Adoption")
-            st.markdown("- Conduct targeted training sessions for business users")
-            st.markdown("- Create user-friendly documentation and guides")
-            st.markdown("- Establish regular touch points to gather feedback")
-            
-            st.markdown("#### Expected Outcomes")
-            st.markdown("- Improved data quality and reduced manual intervention")
-            st.markdown("- Greater business engagement with Analytics Hub")
-            st.markdown("- Clear ownership and accountability for data assets")
-        
-        st.markdown("</div>", unsafe_allow_html=True)
-    
-    with rec_tabs[1]:
-        st.markdown("<div class='card'>", unsafe_allow_html=True)
-        st.markdown("### Medium-Term Initiatives (60-90 Days)")
-        
-        col1, col2 = st.columns(2)
-        
-        with col1:
-            st.markdown("#### 1. AI/ML-Powered Data Quality")
-            st.markdown("- Implement AI solution to automatically detect and remediate data quality issues from custodians")
-            st.markdown("- Deploy ML models for data validation, anomaly detection, and auto-correction")
-            st.markdown("- Create intelligent data quality monitoring dashboard with predictive capabilities")
-            
-            st.markdown("#### 2. RPAG Data Integration Acceleration")
-            st.markdown("- Develop ML-powered solution to manage the 400+ files with different formats from RPAG")
-            st.markdown("- Implement intelligent schema detection and mapping for variable data formats")
-            st.markdown("- Automate reconciliation and validation processes")
-        
-        with col2:
-            st.markdown("#### 3. Team Structure & Capabilities")
-            st.markdown("- Strategically onboard new headcount:")
-            st.markdown("  - 2 Data Engineers focused on pipeline optimization and automation")
-            st.markdown("  - 2 Data Scientists dedicated to ML/AI solutions")
-            st.markdown("  - 1 Project Manager to drive adoption and governance")
-            
-            st.markdown("#### Expected Outcomes")
-            st.markdown("- 70% reduction in manual processing for data quality issues")
-            st.markdown("- Streamlined RPAG data integration")
-            st.markdown("- Dedicated team with clear responsibilities")
-        
-        st.markdown("</div>", unsafe_allow_html=True)
-    
-    with rec_tabs[2]:
-        st.markdown("<div class='card'>", unsafe_allow_html=True)
-        st.markdown("### Strategic Roadmap (6-12 Months)")
-        
-        st.markdown("A strategic pivot toward AI/ML-powered solutions is recommended to address the most critical challenges:")
-        
-        col1, col2 = st.columns(2)
-        
-        with col1:
-            st.markdown("#### 1. Recordkeeper Initiative & Data as a Service")
-            st.markdown("- Implement AI-powered data integration platform")
-            st.markdown("- Develop intelligent APIs for data as a service capabilities")
-            st.markdown("- Create ML models to standardize data across platforms")
-            
-            st.markdown("#### 2. Alteryx Migration & Process Transformation")
-            st.markdown("- Leverage AI to accelerate migration of reports")
-            st.markdown("- Implement intelligent workflow automation")
-            st.markdown("- Create self-service analytics with AI assistants")
-        
-        with col2:
-            st.markdown("#### 3. Master Data Management & Intelligence")
-            st.markdown("- Build AI-powered MDM solution for funds and plans")
-            st.markdown("- Replace FactSet with in-house solution (potential $250k/year savings)")
-            st.markdown("- Implement automated data lineage and impact analysis")
-            
-            st.markdown("#### 4. Advanced Analytics Platform")
-            st.markdown("- Develop AI models for profitability and performance prediction")
-            st.markdown("- Implement intelligent anomaly detection")
-            st.markdown("- Create predictive analytics for business growth")
-        
-        st.markdown("</div>", unsafe_allow_html=True)
-    
-    # Resource allocation
-    st.markdown("<div class='card'>", unsafe_allow_html=True)
-    st.markdown("### Resource Allocation")
-    
-    col1, col2, col3 = st.columns(3)
-    
-    with col1:
-        st.markdown("#### Data Engineers (2)")
-        st.markdown("- **Engineer 1**: AI/ML-powered data quality automation and RPAG integration")
-        st.markdown("- **Engineer 2**: Recordkeeper Initiative architecture and Data as a Service implementation")
-    
-    with col2:
-        st.markdown("#### Data Scientists (2)")
-        st.markdown("- **Scientist 1**: ML models for data ingestion, classification, and anomaly detection")
-        st.markdown("- **Scientist 2**: AI for predictive analytics and intelligent data processing applications")
-    
-    with col3:
-        st.markdown("#### Project Manager")
-        st.markdown("- Coordinate Enterprise Data Governance implementation")
-        st.markdown("- Drive user adoption through targeted enablement programs")
-        st.markdown("- Manage Alteryx migration and process transformation initiatives")
-    
-    st.markdown("</div>", unsafe_allow_html=True)
-    
-    # Key benefits
-    st.markdown("<div class='card'>", unsafe_allow_html=True)
-    st.markdown("### Expected Benefits")
-    
-    col1, col2 = st.columns(2)
-    
-    with col1:
-        st.markdown("#### Operational Benefits")
-        st.markdown("- 70% reduction in manual data processing")
-        st.markdown("- 90% automation of data quality validation")
-        st.markdown("- 60% faster time to insight for business users")
-        st.markdown("- $250k potential annual savings from FactSet replacement")
-    
-    with col2:
-        st.markdown("#### Strategic Benefits")
-        st.markdown("- Data-driven decision making across the organization")
-        st.markdown("- Scalable platform for future acquisitions and growth")
-        st.markdown("- Improved data quality and confidence in reporting")
-        st.markdown("- Enhanced ability to identify business opportunities")
-    
-    st.markdown("</div>", unsafe_allow_html=True)
-
-# Run the selected page
-if page == "Executive Dashboard":
-    executive_dashboard()
-elif page == "Project Status":
-    project_status_page()
-elif page == "Analytics Hub":
-    analytics_hub()
-elif page == "AI/ML Roadmap":
-    ai_ml_roadmap()
-elif page == "Strategic Recommendations":
-    strategic_recommendations()
