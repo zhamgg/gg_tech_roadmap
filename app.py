@@ -931,3 +931,23 @@ def ai_ml_roadmap():
             st.markdown(f"- {metric}")
     
     st.markdown("</div>", unsafe_allow_html=True)
+
+
+# Run the selected page
+st.write(f"Current page selected: {page}")  # Debug line
+
+if page == "Executive Dashboard":
+    st.write("Loading Executive Dashboard...")  # Debug line
+    executive_dashboard()
+elif page == "Project Status":
+    st.write("Loading Project Status...")  # Debug line
+    project_status_page()
+elif page == "Analytics Hub":
+    st.write("Loading Analytics Hub...")  # Debug line
+    analytics_hub()
+elif page == "AI/ML Roadmap":
+    st.write("Loading AI/ML Roadmap...")  # Debug line
+    ai_ml_roadmap()
+elif page == "Strategic Recommendations":
+    st.write("Loading Strategic Recommendations...")  # Debug line
+    strategic_recommendations()
